@@ -2,37 +2,57 @@
 <div class="body">
 
 <form @submit.prevent="register" >
+
   <div class="sign">
     <h1>Register</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
 
-    <label for="email"><b>Email</b></label>
+      <fieldset>
+
+
+    <!-- <label for="email"><b>Email</b></label> -->
     <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
-    <label for="psw"><b>Password</b></label>
+    <br>
+
+    <!-- <label for="psw"><b>Password</b></label> -->
     <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 
-    <label for="full_name"><b>Full Name</b></label>
+    <br>
+
+    <!-- <label for="full_name"><b>Full Name</b></label> -->
     <input type="text" placeholder="Enter Full Name" name="full_name" id="full_name" required>
 
-    <label for="contact_number"><b>Contact Number:</b></label>
+    <br>
+
+    <!-- <label for="contact_number"><b>Contact Number:</b></label> -->
     <input type="text" placeholder="Enter Contact Number" name="contact_number" id="conatct_number" required>
 
-    <label for="about"><b>About</b></label>
-    <input type="text" placeholder="Tell us about yourself..." name="about" id="about" >
+    <br>
 
-    <label for="avatar"><b>Avatar</b></label>
-    <input type="text" placeholder="Enter the link of your desired avatar" name="avatar" id="avatar" >
+    <!-- <label for="about"><b>About</b></label> -->
+    <input type="text" placeholder="Tell us about yourself..." name="about" id="about">
+
+    <br>
+
+    <!-- <label for="avatar"><b>Avatar</b></label> -->
+    <input type="text" placeholder="Enter the link of your desired avatar" name="avatar" id="avatar">
+  </fieldset>
+
+
+
+    <br>
      <!-- full_name, password, contact_number, about, avatar -->
 
-    <hr>
+    <br>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
-    <button type="submit" class="registerbtn">Register</button>
+    <button type="submit" class="registerbtn" style="width: 10%
+" >Register</button>
   </div>
   
-  <div class="container signin">
+  <div class="container signin" style="width: 100%">
     <p>Already have an account? <a href="/login">Sign in</a>.</p>
   </div>
 </form>
@@ -50,9 +70,9 @@ export default {
       contact_number: "",
       about: "",
       avatar: ""
-     
     };
   },
+
   methods: {
     register() {
          fetch('https://capstone-proj-back-end.herokuapp.com/users', {
@@ -65,12 +85,13 @@ export default {
     contact_number: this.contact_number,
     about: this.about,
     avatar: this.avatar
-     
   }),
+
   headers: {
     'Content-type': 'application/json; charset=UTF-8',
   },
 })
+
   .then((response) => response.json())
   .then((json) => console.log(json));
       this.msg = `${ this.name }  Registered Successfuly`;
@@ -80,10 +101,14 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 .body {
   font-family: Arial, Helvetica, sans-serif;
-  
+  background-color: darkgray;
+  height: 94vh;
+  overflow: hidden;
+  position: relative;  
 }
 
 * {
@@ -93,12 +118,12 @@ export default {
 /* Add padding to containers */
 .sign {
   padding: 16px;
-  background-color: white;
+  background-color: darkgray;
 }
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
-  width: 100%;
+  width: 40%;
   padding: 15px;
   margin: 5px 0 22px 0;
   display: inline-block;
